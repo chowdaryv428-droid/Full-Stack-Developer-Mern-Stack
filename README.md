@@ -110,4 +110,9 @@ npm run dev                # starts the app on http://localhost:5173
   stay the same.
 =======
 # Full-Stack-Developer-Mern-Stack
->>>>>>> 48a26b90bf394157692e967d6f36573328bbc528
+Team members:
+1.MANIKONDA VINAY
+2.VEMULA ACHYUCH
+3.RAVULAPALLI VIJAY KUMAR
+4.SHAIL FIROZ
+5.THATAPUDI MARIYADASU
