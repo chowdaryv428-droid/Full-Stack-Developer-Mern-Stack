@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Harbor — Customer Care Registry
 
 A full-stack Customer Care Registry: customers raise complaints, admins assign them
@@ -107,3 +108,6 @@ npm run dev                # starts the app on http://localhost:5173
 - **Database**: swap MongoDB for MySQL/PostgreSQL by replacing the Mongoose models
   with an ORM (e.g. Prisma or Sequelize) — the controller logic and API contract can
   stay the same.
+=======
+# Full-Stack-Developer-Mern-Stack
+>>>>>>> 48a26b90bf394157692e967d6f36573328bbc528
