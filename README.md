@@ -1,103 +1,83 @@
-<<<<<<< HEAD
 # Harbor — Customer Care Registry
 
-A full-stack Customer Care Registry: customers raise complaints, admins assign them
-to agents, agents resolve them, and customers close the loop with feedback. Built
-with the MERN stack (MongoDB, Express, React, Node.js).
+A full-stack Customer Care Registry where customers can raise complaints, admins can assign them to agents, agents can resolve them, and customers can provide feedback. Built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)**.
+
+## Team Members
+
+1. MANIKONDA VINAY
+2. VEMULA ACHYUTH
+3. RAVULAPALLI VIJAY KUMAR
+4. SHAIL FIROZ
+5. THATAPUDI MARIYADASU
 
 ## Features
 
-- **Roles**: customer, agent, admin — each with a tailored dashboard and permissions
-- **Auth**: JWT-based registration and login with hashed passwords
-- **Complaint lifecycle**: open → assigned → in progress → resolved → closed,
-  visualized with a status gauge
-- **Admin tools**: assign complaints to agents, filter by status, view registry-wide
-  analytics (counts by status/category, average satisfaction rating), create agent
-  accounts
-- **Agent tools**: view assigned complaints, message the customer, update status and
-  resolution notes
-- **Customer tools**: raise complaints with category/priority, message the assigned
-  agent, rate and close resolved complaints
-- **Communication history**: every complaint keeps a running conversation thread
-  between customer and agent
-- **Profile management**: all users can update their own contact details; admins can
-  manage any account
+* **Roles:** Customer, Agent, and Admin with separate dashboards and permissions.
+* **Authentication:** JWT-based registration and login with encrypted passwords.
+* **Complaint Lifecycle:** Open → Assigned → In Progress → Resolved → Closed.
+* **Admin Dashboard:** Assign complaints, manage users, and view complaint statistics.
+* **Agent Dashboard:** View assigned complaints, communicate with customers, and update complaint status.
+* **Customer Dashboard:** Register complaints, track progress, send messages, and submit feedback.
+* **Communication History:** Complete conversation history for every complaint.
+* **Profile Management:** Users can update their profiles, while admins can manage all user accounts.
 
-## Project structure
+## Project Structure
 
-```
+```text
 customer-care-registry/
-├── backend/          Express API + MongoDB models
-│   ├── config/       Database connection
-│   ├── controllers/  Route handlers (auth, users, complaints)
-│   ├── middleware/   JWT auth + role guard
-│   ├── models/       Mongoose schemas (User, Complaint)
-│   ├── routes/       Express routers
-│   ├── seed.js       Creates a first admin account
-│   └── server.js     App entry point
-└── frontend/         React (Vite) client
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── seed.js
+│   └── server.js
+└── frontend/
     └── src/
-        ├── api/       Axios client
-        ├── components/  Shared UI (layout, status gauge, badges)
-        ├── context/   Auth context (login/register/session)
-        └── pages/     Login, Register, Dashboard, complaint flows, admin pages
+        ├── api/
+        ├── components/
+        ├── context/
+        └── pages/
 ```
 
-## Getting started
+## Getting Started
 
 ### Prerequisites
-- Node.js 18+
-- A MongoDB instance (local `mongod`, or a free MongoDB Atlas cluster)
 
-### 1. Backend
+* Node.js 18 or above
+* MongoDB (Local or MongoDB Atlas)
+
+### Backend
 
 ```bash
 cd backend
-cp .env.example .env    # then edit MONGO_URI and JWT_SECRET
+cp .env.example .env
 npm install
-node seed.js             # creates admin@carecare.local / Admin@123
-npm run dev               # starts the API on http://localhost:5000
+node seed.js
+npm run dev
 ```
 
-### 2. Frontend
+### Frontend
 
 ```bash
 cd frontend
-cp .env.example .env     # points at http://localhost:5000/api by default
+cp .env.example .env
 npm install
-npm run dev                # starts the app on http://localhost:5173
+npm run dev
 ```
 
-### 3. Try it out
-1. Open http://localhost:5173/login and sign in as `admin@carecare.local` /
-   `Admin@123` (then change the password from the Profile page).
-2. As admin, add an agent from **Agents**.
-3. Open a private/incognito window, go to **Register**, and create a customer
-   account.
-4. As the customer, raise a complaint.
-5. Back as admin, open the complaint from **All complaints** and assign it to the
-   agent you created.
-6. Sign in as the agent to message the customer and mark the complaint resolved.
-7. Sign back in as the customer to rate the resolution and close the complaint.
+### Running the Project
 
-## API overview
+1. Start the backend server.
+2. Start the frontend application.
+3. Open `http://localhost:5173`.
+4. Login as Admin or register a new Customer account.
+5. Create, assign, resolve, and close complaints.
 
-| Method | Endpoint | Access | Purpose |
-|---|---|---|---|
-| POST | `/api/auth/register` | Public | Create a customer account |
-| POST | `/api/auth/login` | Public | Log in, receive a JWT |
-| GET | `/api/auth/me` | Authenticated | Current user profile |
-| GET/PUT/DELETE | `/api/users/:id` | Self or admin | View/update/delete a user |
-| GET/POST | `/api/users` | Admin | List users / create agent or admin accounts |
-| POST | `/api/complaints` | Customer | Raise a complaint |
-| GET | `/api/complaints` | Authenticated | List complaints (scoped by role) |
-| GET | `/api/complaints/:id` | Authenticated | Complaint detail |
-| PUT | `/api/complaints/:id/assign` | Admin | Assign an agent |
-| PUT | `/api/complaints/:id/status` | Agent/Admin | Update status + resolution notes |
-| POST | `/api/complaints/:id/messages` | Authenticated | Post a message on a complaint |
-| POST | `/api/complaints/:id/feedback` | Customer | Rate a resolved complaint and close it |
-| GET | `/api/complaints/stats/overview` | Admin | Aggregate stats for the dashboard |
+## API Overview
 
+<<<<<<< HEAD
 ## Notes on customization
 - **Custom fields**: `User.customFields` is a free-form map for
   industry-specific data — surface it in the Profile page and admin user editor as
@@ -117,3 +97,32 @@ Team members:
 4.SHAIL FIROZ
 5.THATAPUDI MARIYADASU
 >>>>>>>48a26b90bf394157692e967d6f36573328bbc528
+=======
+| Method         | Endpoint                         | Description             |
+| -------------- | -------------------------------- | ----------------------- |
+| POST           | `/api/auth/register`             | Register a customer     |
+| POST           | `/api/auth/login`                | User login              |
+| GET            | `/api/auth/me`                   | Get current user        |
+| GET/PUT/DELETE | `/api/users/:id`                 | Manage users            |
+| POST           | `/api/complaints`                | Create complaint        |
+| GET            | `/api/complaints`                | Get complaints          |
+| PUT            | `/api/complaints/:id/assign`     | Assign complaint        |
+| PUT            | `/api/complaints/:id/status`     | Update complaint status |
+| POST           | `/api/complaints/:id/messages`   | Send message            |
+| POST           | `/api/complaints/:id/feedback`   | Submit feedback         |
+| GET            | `/api/complaints/stats/overview` | Dashboard statistics    |
+
+## Technologies Used
+
+* MongoDB
+* Express.js
+* React.js (Vite)
+* Node.js
+* JWT Authentication
+* Axios
+* Bootstrap/CSS
+
+## License
+
+This project was developed as part of the **Full Stack Developer (MERN Stack)** internship/project.
+>>>>>>> ffd27e0 (Fix README merge conflict and update README)
